@@ -26,7 +26,7 @@ post_data = [
     {
         "userId":  "Alex Gates",
         "id": 5,
-        "title": " nesciunt quas odio",
+        "title": "nesciunt quas odio",
         "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
     },
     {
@@ -37,10 +37,28 @@ post_data = [
     }, ]
 
 # Your Code Start from here
+#first_item=(post_data[0])
+#print(first_item)
+for data in post_data:
+    title=data.get("title")
+   #
+    if title[-1] or title[0] == " ":
+        title = title[0:len(title) - 1]
+    slug_value = title.replace(" ", "-")
+   # print(slug_value)
 
+    data.update({'slug': slug_value})
+    print(data)
 
+#print(title)
+#if title[-1] or title[0] ==" ":
+   # title=title[0:len(title)-1]
+#slug_value=title.replace(" ","-")
+#print(slug_value)
 
+#first_item.update({'slug': slug_value})
+#print(first_item)
 
 # Your code ends here
 
-print(post_data[4])
+#print(post_data[4])
