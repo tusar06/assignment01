@@ -37,28 +37,30 @@ post_data = [
     }, ]
 
 # Your Code Start from here
-#first_item=(post_data[0])
-#print(first_item)
+#catch the tile of each dictionary
 for data in post_data:
     title=data.get("title")
-   #
+   #remove the space from initial and last of the title
     if title[-1] or title[0] == " ":
         title = title[0:len(title) - 1]
+        #replace the space of title with dash in slug
     slug_value = title.replace(" ", "-")
-   # print(slug_value)
-
-    data.update({'slug': slug_value})
-    print(data)
-
-#print(title)
-#if title[-1] or title[0] ==" ":
-   # title=title[0:len(title)-1]
-#slug_value=title.replace(" ","-")
-#print(slug_value)
-
-#first_item.update({'slug': slug_value})
-#print(first_item)
-
+#date the dictionary
+  #  data.update({'slug': slug_value})
+  #  print(data)
+    slug_split = slug_value.split("-")
+    slug_length=len(slug_split)
+    slug_split_value_3=(slug_split[0:3])
+    final_slug_3="" #variable initialize
+    #check the 1st 3 words of slug
+    for x in slug_split_value_3:
+        final_slug_3+=x+"-"
+#remove the last slash (-)
+    if final_slug_3[-1]=="-":
+        final_slug_3=final_slug_3[0:len(final_slug_3)-1]
+        # print slug limited to 3 words
+        data.update({'slug': final_slug_3})
+        print(data)
 # Your code ends here
-
-#print(post_data[4])
+#print post_data[4]
+print('\n','print post_data(4):', post_data[4])
