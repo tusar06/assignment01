@@ -20,7 +20,7 @@ i=random.choice(random_number_sequence)
 row_mobile_data= (mobile_data['data'][i])
 
 #distinguish usd amount from strong
-bdt_amount=''.join([i for i in row_mobile_data.get('price') if i.isdigit()])
+bdt_amount=''.join([temp for temp in row_mobile_data.get('price') if temp.isdigit()])
 #USD to bdt currency conversion
 in_bd_tk=round(float(bdt_amount)*mobile_data['exchnage_rate'])
 
